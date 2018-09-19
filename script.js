@@ -5,7 +5,7 @@ $(document).ready(function() {
         loadHome();
     }
 
-    if(pageQuery == "pressentation"){
+    if(pageQuery == "presentation"){
         loadPressentation();
     }
 });
