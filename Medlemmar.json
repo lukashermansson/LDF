@@ -1,0 +1,49 @@
+{
+    "members": [
+        {
+            "name": "Lukas",
+            "ImageURL": "http://test.local/test.jpg",
+            "skills": [
+                {
+                    "Java": "8"
+                },
+                {
+                    "C#": "3"
+                },
+                {
+                    "Javascript": "6"
+                }
+            ]
+        },
+        {
+            "name": "David",
+            "ImageURL": "http://test.local/test2.jpg",
+            "skills": [
+                {
+                    "Fyllekäk": "10"
+                },
+                {
+                    "Cyckla": "3"
+                },
+                {
+                    "Whiskey": "10"
+                }
+            ]
+        },
+        {
+            "name": "Fredrik",
+            "ImageURL": "http://test.local/test7.jpg",
+            "skills": [
+                {
+                    "Vin": "10"
+                },
+                {
+                    "Golf": "7"
+                },
+                {
+                    "Bärs": "10"
+                }
+            ]
+        }
+    ]
+}
