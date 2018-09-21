@@ -1,23 +1,26 @@
 $(document).ready(function() {
 
     let pageQuery = window.location.hash.split('#')[1];
-    if(!pageQuery == null){
-        pageQuery = pageQuery.split("?")[0];
+    loadPage(pageQuery);
+});
+function loadPage(page){
+    if(page != null){
+        page = page.split("?")[0];
     }
-    if(pageQuery == "home" || pageQuery == null){
+    if(page == "home" || page == null){
         loadHome();
         return;
     }
 
-    if(pageQuery == "presentation"){
+    if(page == "presentation"){
         loadPressentation();
         return;
     }
     loadMissingPage();
-});
-
+}
 
 function loadHeader(){
+    $("header").remove();
     $("body").prepend("<header></header>");
 
     $( "header" ).load( "Pages/header.html" );
@@ -33,4 +36,8 @@ function loadMissingPage() {
 function loadPressentation() {
     loadHeader();
     $( "#content" ).load( "Pages/pressentation.html" );
+}
+
+window.onpopstate = function(event) {
+    loadPage(location.hash.split('#')[1]);
 }
