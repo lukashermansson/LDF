@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
     let pageQuery = window.location.hash.split('#')[1];
-    pageQuery = pageQuery.split("?")[0];
+    if(!pageQuery == null){
+        pageQuery = pageQuery.split("?")[0];
+    }
     if(pageQuery == "home" || pageQuery == null){
         loadHome();
         return;
