@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function navBarItemKlicked(event){
     let newPageURL = event.data.page;
-    console.log(newPageURL);
+    //console.log(newPageURL);
 
     $( "#content" ).load( newPageURL);
 }
