@@ -44,22 +44,23 @@ function loadMemberPage(memberID){
             let skill = keys[0];
             let skillNameSpan = $("<span>" + skill + ":</span>");
             skillDiv.append(skillNameSpan);
-            let circles = 10;
-            for(let u = 0; u < Object.values(member.skills[i])[0]; u++){
-                circles--;
-                let dot = $("<span class='dot coloredDot'></span>");
-                skillDiv.append(dot);
-            }
-            while(circles > 0){
-                
-                circles--;
-                let dot = $("<span class='dot'></span>");
-                skillDiv.append(dot);
-            }
+            let percent = Object.values(member.skills[i])[0] + "%"
+            let skillOuter = $("<span class='skillOuter'></span>");
+            let skillInner = $("<span class='skillInner' data='" + percent + "'></span>");
+
+        
+            skillOuter.append(skillInner);
+            
+            skillDiv.append(skillOuter);
             skillsDiv.append(skillDiv);
+            
         }
         memberDiv.append(skillsDiv);
 
         $("#content").html(memberDiv);
+
+        $(".skillInner").each(function () {
+            $(this).css("width", $(this).attr("data"));
+        })
     });
 }

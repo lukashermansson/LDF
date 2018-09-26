@@ -23,19 +23,21 @@ h2 {
     cursor: pointer;
     border-radius: 0.2em;
 }
-
-.dot {
-    height: 1.5em;
-    width: 1.7em;
+.skillOuter{
+    width: 700px;
+    height: 20px;
+    border-radius: 0.2em;
+    display: block;
     background-color: #42E8A1;
-    border-radius: 4px;
-    display: inline-block;
 }
-
-
-.coloredDot {
+.skillInner{
+    height: 100%;
+    width: 0px;
+    transition: width 0.7s;
+    display: block;
     background-color: #48FF7D;
 }
+
 
 header ul {
     display: block;
