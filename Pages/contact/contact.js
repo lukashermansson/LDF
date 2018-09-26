@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     $( "#fname" ).keyup(fnameValidator);
     $( "#telenr" ).keyup(telnrValidator);
+    $( "#email" ).keyup(emailValidator);
 });
 
 function submit() {
@@ -40,4 +41,24 @@ function telnrValidator() {
     if(value.length >= 10){
         telnr.addClass("invalid");
     }
+}
+
+function emailValidator() {
+    let email = $("#email");
+
+    let value = email[0].value;
+    email.removeClass("invalid");
+    if(value == null){
+        email.addClass("invalid");
+        
+    }
+    if(!value.includes(".")){
+        email.addClass("invalid");
+        
+    }
+    if(!value.includes("@")){
+        email.addClass("invalid");
+        
+    }
+    
 }
