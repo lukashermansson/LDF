@@ -17,6 +17,10 @@ function loadPage(page){
         loadPressentation();
         return;
     }
+    if(page == "kontakt"){
+        loadContactPage();
+        return;
+    }
     loadMissingPage();
 }
 
@@ -24,19 +28,22 @@ function loadHeader(){
     $("header").remove();
     $("body").prepend("<header></header>");
 
-    $( "header" ).load( "Pages/header.html" );
+    $( "header" ).load( "Pages/navigation/header.html" );
 }
 function loadHome() {
     loadHeader();
-    $( "#content" ).load( "Pages/home.html" );
+    $( "#content" ).load( "Pages/home/home.html" );
 }
 function loadMissingPage() {
-    $( "#content" ).load( "Pages/404.html" );
+    $( "#content" ).load( "Pages/404/404.html" );
 }
-
+function loadContactPage() {
+    loadHeader();
+    $( "#content" ).load( "Pages/contact/contact.html" );
+}
 function loadPressentation() {
     loadHeader();
-    $( "#content" ).load( "Pages/pressentation.html" );
+    $( "#content" ).load( "Pages/presentation/presentation.html" );
 }
 
 window.onpopstate = function(event) {
