@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    //register event handlers
     $("#ContactSubmit").click(submit);
 
 
@@ -10,6 +12,7 @@ $(document).ready(function () {
 function submit() {
 }
 
+//validation for name
 function fnameValidator() {
     let fname = $("#fname");
 
@@ -23,6 +26,7 @@ function fnameValidator() {
         
     }
 }
+//validation for telefone number
 function telnrValidator() {
     let telnr = $("#telenr");
 
@@ -42,7 +46,7 @@ function telnrValidator() {
         telnr.addClass("invalid");
     }
 }
-
+//validation for email
 function emailValidator() {
     let email = $("#email");
 
