@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     let pageQuery = window.location.hash.split('#')[1];
+    
     loadPage(pageQuery);
 });
 function loadPage(page){

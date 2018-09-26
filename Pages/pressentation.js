@@ -1,6 +1,8 @@
 $(document).ready(function () {
+
     let params = (new URL(document.location)).searchParams;
     let memberSearch = params.get("member");
+
     if(memberSearch != null){
         loadMemberPage(memberSearch);
         return; 
@@ -12,7 +14,7 @@ $(document).ready(function () {
         $.each(data.members, function (index, value){
             let medlemsruta = $("<div></div>");
             medlemsruta.append("<h2>" + value.name + "</h2>");
-            let button = $("<button>Gå till sida</button>");
+            let button = $("<div class='button'>Gå till sida</div>");
             button.click({"member": index}, buttonClicked)
             medlemsruta.append(button);
             
@@ -23,6 +25,7 @@ $(document).ready(function () {
 
 function buttonClicked(event){
     let member = event.data.member;
+
     var URL = document.location;
     window.history.pushState( {} , '', '?member=' + member + "#presentation");
     loadMemberPage(event.data.member);
