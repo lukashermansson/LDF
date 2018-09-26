@@ -1,7 +1,8 @@
 $(document).ready(function () {
-    let urlParams = new URLSearchParams(window.location.search);
-    let memberSearch = urlParams.get('member');
-    //console.log(urlParams);
+
+    let params = (new URL(document.location)).searchParams;
+    let memberSearch = params.get("member");
+
     if(memberSearch != null){
         loadMemberPage(memberSearch);
         return; 
@@ -24,21 +25,19 @@ $(document).ready(function () {
 
 function buttonClicked(event){
     let member = event.data.member;
-    //console.log(member);
-    let URL = document.location;
-    window.history.pushState( {} , '', URL + '?member=' + member );
-    loadMemberPage(member);
+
+    var URL = document.location;
+    window.history.pushState( {} , '', '?member=' + member + "#presentation");
+    loadMemberPage(event.data.member);
 }
 function loadMemberPage(memberID){
     $.getJSON("Medlemmar.json", function( data ) {
         let member = data.members[memberID];
-        //console.log(member);
         let memberDiv = $("<div id='member'></div>");
         memberDiv.append("<h2>" +member.name + "</h2>");
         memberDiv.append("<h2>" +member.about + "</h2>");
 
         let skillsDiv = $("<div id='skills'></div>");
-        //console.log(member.skills.length);
         for(let i = 0; i < member.skills.length; i++){
             let skillDiv = $("<div id='skill'></div>");
             let keys = Object.keys(member.skills[i]);
@@ -51,7 +50,6 @@ function loadMemberPage(memberID){
                 let dot = $("<span class='dot coloredDot'></span>");
                 skillDiv.append(dot);
             }
-            //console.log(circles);
             while(circles > 0){
                 
                 circles--;
