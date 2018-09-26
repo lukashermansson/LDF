@@ -6,10 +6,12 @@ $(document).ready(function() {
 function navBarItemKlicked(event){
     event.preventDefault();
     let newPageURL = event.data.page;
+
     let link =  event.data.link;
     var url = window.location.href;
     let BeforeSearch = url.split("?")[0];
     window.history.pushState({}, document.title, BeforeSearch + link);
+
 
     console.log(link);
     
