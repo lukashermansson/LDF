@@ -70,6 +70,6 @@ function loadMemberPage(memberID){
         //update the width, this is needed for the css animation
         $(".skillInner").each(function () {
             $(this).css("width", $(this).attr("data"));
-        })
+        });
     });
 }
