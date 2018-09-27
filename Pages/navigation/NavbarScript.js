@@ -5,7 +5,10 @@ $(document).ready(function() {
 });
 
 function navBarItemKlicked(event){
+    //prevent the default browser action to handle this ourselves 
     event.preventDefault();
+
+    //construct the new url, stripping ?member=1 in the process 
     let newPageURL = event.data.page;
 
     let link =  event.data.link;
@@ -13,8 +16,9 @@ function navBarItemKlicked(event){
     let BeforeSearch = url.split("?")[0];
     BeforeSearch = BeforeSearch.split("#")[0];
 
+    //updates the current url and enables functionality of back and forwards buttons
     window.history.pushState({}, document.title, BeforeSearch + link);
 
-
+    //load html from file specified in the link data
     $( "#content" ).load( newPageURL);
 }
