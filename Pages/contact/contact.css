@@ -27,3 +27,12 @@ input[type=text], textarea {
 input[type=text].invalid, textarea.invalid {
     border: 1px solid #cc0000;
 }
+
+#map { 
+    width: calc(96%);
+    max-width: 800px;
+    height: 20em;
+    margin: auto;
+    border-radius: 4px;
+    margin-top: 4em;
+}
