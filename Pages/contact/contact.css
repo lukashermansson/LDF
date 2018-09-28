@@ -1,17 +1,4 @@
-#contactFormDiv {
-    width: calc(96% - 2em);
-    border-radius: 6px;
-    background-color: #42D3E8;
 
-    display: border-box;
-    margin: auto;
-    margin-top: 2em;
-    max-width: 767px;
-    padding: 1em;
-
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-
-}
 
 input[type=text], textarea {
     display: border-box;
