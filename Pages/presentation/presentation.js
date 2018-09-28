@@ -12,17 +12,27 @@ $(document).ready(function () {
 
     //if no user is selected render members
     $.getJSON("Medlemmar.json", function( data ) {
+        let medlemmar = $("<div id='medlemmar'></div>");
         $.each(data.members, function (index, value){
             let medlemsruta = $("<div></div>");
-            medlemsruta.append("<h2>" + value.name + "</h2>");
-            let button = $("<div class='button'>Gå till sida</div>");
-            button.click({"member": index}, buttonClicked)
-            medlemsruta.append(button);
+            let namn = $("<h2>" + value.name + "</h2>");
+            namn.click({"member": index}, buttonClicked)
+            medlemsruta.append(namn);
             
-            $("#content").append(medlemsruta);
+            medlemmar.append(medlemsruta)
+            
         });
+        $("#presentation").append(medlemmar);
     });
+
+    $("#medlemsknapp").click(medlemsknapp);
 });
+
+function medlemsknapp() {
+    $("#medlemmar").toggleClass("shown");
+
+}
+
 
 //specific member button clicked
 function buttonClicked(event){
@@ -50,9 +60,10 @@ function loadMemberPage(memberID){
             let skill = keys[0];
             let skillNameSpan = $("<span>" + skill + ":</span>");
             skillDiv.append(skillNameSpan);
-            let percent = Object.values(member.skills[i])[0] + "%"
+
+            let percent = Object.values(member.skills[i])[0] + "%";
             let skillOuter = $("<span class='skillOuter'></span>");
-            let skillInner = $("<span class='skillInner' data='" + percent + "'></span>");
+            let skillInner = $("<span class='skillInner' data='" + percent + "'>" + percent + "</span>");
 
             //construct the html from the variables
             skillOuter.append(skillInner);
@@ -65,11 +76,11 @@ function loadMemberPage(memberID){
         memberDiv.append(skillsDiv);
 
         //render the html
-        $("#content").html(memberDiv);
+        $("#presentation").html(memberDiv);
 
         //update the width, this is needed for the css animation
         $(".skillInner").each(function () {
             $(this).css("width", $(this).attr("data"));
-        })
+        });
     });
 }

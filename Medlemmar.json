@@ -22,10 +22,10 @@
             "ImageURL": "http://test.local/test2.jpg",
             "skills": [
                 {
-                    "Fyllekäk": "100"
+                    "Fyllekäk": "80"
                 },
                 {
-                    "Cyckla": "20"
+                    "Cykla": "15"
                 },
                 {
                     "Whiskey": "100"
