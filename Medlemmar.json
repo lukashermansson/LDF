@@ -3,7 +3,7 @@
         {
             "name": "Lukas",
             "about": "Do incididunt ex consequat officia minim mollit mollit minim nisi duis ullamco ut minim anim.",
-            "ImageURL": "http://test.local/test.jpg",
+            "ImageURL": "pictures/lukke.jpg",
             "skills": [
                 {
                     "Java": "80"
@@ -19,7 +19,7 @@
         {
             "name": "David",
             "about": "",
-            "ImageURL": "http://test.local/test2.jpg",
+            "ImageURL": "pictures/duvis.jpg",
             "skills": [
                 {
                     "Fyllekäk": "80"
@@ -35,7 +35,7 @@
         {
             "name": "Fredrik",
             "about": "",
-            "ImageURL": "http://test.local/test7.jpg",
+            "ImageURL": "pictures/frillster.jpg",
             "skills": [
                 {
                     "Vin": "100"

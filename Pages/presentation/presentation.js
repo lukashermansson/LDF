@@ -49,6 +49,7 @@ function loadMemberPage(memberID){
         let member = data.members[memberID];
         //construct html
         let memberDiv = $("<div id='member'></div>");
+        memberDiv.append("<img src='" + member.ImageURL + "'/>");
         memberDiv.append("<h2>" +member.name + "</h2>");
         memberDiv.append("<h2>" +member.about + "</h2>");
 
