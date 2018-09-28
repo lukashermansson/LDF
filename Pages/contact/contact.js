@@ -4,13 +4,61 @@ $(document).ready(function () {
     $("#ContactSubmit").click(submit);
 
 
-    $( "#fname" ).keyup(fnameValidator);
-    $( "#telenr" ).keyup(telnrValidator);
-    $( "#email" ).keyup(emailValidator);
+    $( "#fname" ).keyup({ field: "fname" },keyupValidator);
+    $( "#telenr" ).keyup({ field: "telenr" },keyupValidator);
+    $( "#email" ).keyup({ field: "email" },keyupValidator);
+    $( "#message" ).keyup({ field: "message" },keyupValidator);
+
+
+    //load local storage 
+    let contactString = localStorage.getItem("contact");
+
+    if(contactString != null){
+        let contact =  JSON.parse(contactString);
+        $( "#fname" )[0].value = contact.fname;
+        $( "#telenr" )[0].value = contact.telnr;
+        $( "#email" )[0].value = contact.email;
+        $( "#message" )[0].value = contact.message;
+    }
+
+
+    //validate all 
+    fnameValidator();
+    telnrValidator();
+    emailValidator();
 });
 
 function submit() {
 }
+
+function keyupValidator(event) {
+    let field = event.data.field;
+
+    var contact = new Object();
+    
+    contact.fname = $( "#fname" )[0].value;
+    contact.telnr = $( "#telenr" )[0].value;
+    contact.email = $( "#email" )[0].value;
+    contact.message = $( "#message" )[0].value;
+
+    localStorage.setItem("contact", JSON.stringify(contact));
+
+
+    if(field == "fname"){
+        fnameValidator();
+        
+    }
+    if(field == "telenr"){
+        telnrValidator();
+           
+    }
+    if(field == "email"){
+        emailValidator();
+          
+    }
+}
+
+
 
 //validation for name
 function fnameValidator() {
