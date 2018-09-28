@@ -16,6 +16,23 @@ h2 {
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
     font-size: 1.2em
 }
+#presentation {
+    text-align: center;
+}
+.containerDiv {
+    width: calc(96% - 2em);
+    border-radius: 6px;
+    background-color: #42D3E8;
+
+    display: border-box;
+    margin: auto;
+    margin-top: 2em;
+    max-width: 767px;
+    padding: 1em;
+
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+
+}
 .button {
     background-color: #48FF7D; 
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
@@ -30,11 +47,13 @@ h2 {
     border-radius: 0.2em;
 }
 .skillOuter{
-    width: 700px;
-    height: 20px;
+    width: 80%;
+    height: 1.1em;
     border-radius: 0.2em;
     display: block;
     background-color: #42E8A1;
+    margin: auto;
+    overflow: hidden;
 }
 .skillInner{
     height: 100%;
@@ -42,9 +61,17 @@ h2 {
     transition: width 0.7s;
     display: block;
     background-color: #48FF7D;
+    text-align: end;
+    text-indent: 0.5em;
 }
+#medlemmar {
+    display: none;
 
+}
+#medlemmar.shown {
+    display: block;
 
+}
 header ul {
     display: block;
 }
