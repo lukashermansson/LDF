@@ -19,6 +19,15 @@ h2 {
 #presentation {
     text-align: center;
 }
+#medlemmar h2 {
+    cursor: pointer;
+    background-color: #55FFE6;
+    display: block;
+    width: 8em;
+    margin: auto;
+    margin-top: 0.3em;
+    border-radius: 0.2em;
+}
 .containerDiv {
     width: calc(96% - 2em);
     border-radius: 6px;
