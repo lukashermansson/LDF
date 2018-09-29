@@ -64,7 +64,7 @@ function slide(images) {
     }
     slideElem.fadeIn("slow").delay( 2000 ).fadeOut( "slow", function (){
         slide(images);
-    });;
+    });
     slideElem.attr("src", images[index]);
 }
 

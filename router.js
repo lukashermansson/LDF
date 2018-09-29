@@ -36,6 +36,12 @@ function loadPage(page){
         //break execution to prevent multiple pages from being loaded
         return;
     }
+    //load portfolio
+    if(page == "portfolio"){
+        loadPortfolioPage();
+        //break execution to prevent multiple pages from being loaded
+        return;
+    }
     //if no other page was loaded load the 404 page
     loadMissingPage();
 }
@@ -56,6 +62,10 @@ function loadMissingPage() {
 function loadContactPage() {
     loadHeader();
     $( "#content" ).load( "Pages/contact/contact.html" );
+}
+function loadPortfolioPage() {
+    loadHeader();
+    $( "#content" ).load( "Pages/portfolio/portfolio.html" );
 }
 function loadPressentation() {
     loadHeader();
