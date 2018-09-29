@@ -9,9 +9,22 @@ $(document).ready(function () {
         return; 
 
     }
+   
 
+
+    let slideShow = $("<img id='slideShow' />");
+    $("#presentation").prepend(slideShow);
     //if no user is selected render members
     $.getJSON("Medlemmar.json", function( data ) {
+        
+         //slideshow 
+        let images = [];
+        //add image urls to array
+        $.each(data.members, function (index, value){
+            images.push(value.ImageURL);
+        });
+        slide(images);
+        
         let medlemmar = $("<div id='medlemmar'></div>");
         $.each(data.members, function (index, value){
             let medlemsruta = $("<div></div>");
@@ -27,6 +40,33 @@ $(document).ready(function () {
 
     $("#medlemsknapp").click(medlemsknapp);
 });
+
+function slide(images) {
+    let slideElem = $("#slideShow");
+    let index = slideElem.attr("index");
+
+    if(index == null){
+        slideElem.attr("index", "0");
+        index=0;
+    }else{
+        index++;
+        slideElem.attr("index", index);
+    }
+    
+    
+
+    if(index > images.length -1){
+
+    
+        index = 0;
+        slideElem.attr("index", index);
+        
+    }
+    slideElem.fadeIn("slow").delay( 2000 ).fadeOut( "slow", function (){
+        slide(images);
+    });;
+    slideElem.attr("src", images[index]);
+}
 
 function medlemsknapp() {
     $("#medlemmar").toggleClass("shown");
