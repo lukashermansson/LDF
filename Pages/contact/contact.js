@@ -66,10 +66,8 @@ function fnameValidator() {
 
     let value = fname[0].value;
     fname.removeClass("invalid");
-    if(value == null){
-        fname.addClass("invalid");
-    }
-    if(value.length < 2){
+    var regularExpresson = new RegExp("^[a-zA-Z-]{2,}[ ][a-zA-Z-]{2,}$");
+    if(!regularExpresson.test(value)){
         fname.addClass("invalid")
         
     }
@@ -80,17 +78,8 @@ function telnrValidator() {
 
     let value = telnr[0].value;
     telnr.removeClass("invalid");
-    if(value == null){
-        telnr.addClass("invalid");
-        
-    }
-    if(isNaN(value)){
-        telnr.addClass("invalid");
-    }
-    if(value.length <= 8){
-        telnr.addClass("invalid");
-    }
-    if(value.length >= 10){
+    var regularExpresson = new RegExp("^[0][7][0-9][ ][0-9]{3}[ ][0-9]{2}[ ][0-9]{2}$");
+    if(!regularExpresson.test(value)){
         telnr.addClass("invalid");
     }
 }
@@ -100,15 +89,9 @@ function emailValidator() {
 
     let value = email[0].value;
     email.removeClass("invalid");
-    if(value == null){
-        email.addClass("invalid");
-        
-    }
-    if(!value.includes(".")){
-        email.addClass("invalid");
-        
-    }
-    if(!value.includes("@")){
+    
+    var regularExpresson = new RegExp("^[a-zA-Z-0-9]{1,}[@][a-zA-Z]{1,}[\.][a-zA-Z]{1,}$");
+    if(!regularExpresson.test(value)){
         email.addClass("invalid");
         
     }
