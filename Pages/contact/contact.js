@@ -34,7 +34,7 @@ function submit() {
 function keyupValidator(event) {
     let field = event.data.field;
 
-    var contact = new Object();
+    let contact = new Object();
     
     contact.fname = $( "#fname" )[0].value;
     contact.telnr = $( "#telenr" )[0].value;
@@ -66,7 +66,7 @@ function fnameValidator() {
 
     let value = fname[0].value;
     fname.removeClass("invalid");
-    var regularExpresson = new RegExp("^[a-zA-Z-]{2,}[ ][a-zA-Z-]{2,}$");
+    const regularExpresson = new RegExp("^[a-zA-Z-]{2,}[ ][a-zA-Z-]{2,}$");
     if(!regularExpresson.test(value)){
         fname.addClass("invalid")
         
@@ -78,7 +78,7 @@ function telnrValidator() {
 
     let value = telnr[0].value;
     telnr.removeClass("invalid");
-    var regularExpresson = new RegExp("^[0][7][0-9][ ][0-9]{3}[ ][0-9]{2}[ ][0-9]{2}$");
+    const regularExpresson = new RegExp("^[0][7][0-9][ ][0-9]{3}[ ][0-9]{2}[ ][0-9]{2}$");
     if(!regularExpresson.test(value)){
         telnr.addClass("invalid");
     }
@@ -90,7 +90,7 @@ function emailValidator() {
     let value = email[0].value;
     email.removeClass("invalid");
     
-    var regularExpresson = new RegExp("^[a-zA-Z-0-9]{1,}[@][a-zA-Z]{1,}[\.][a-zA-Z]{1,}$");
+    const regularExpresson = new RegExp("^[a-zA-Z-0-9]{1,}[@][a-zA-Z]{1,}[\.][a-zA-Z]{1,}$");
     if(!regularExpresson.test(value)){
         email.addClass("invalid");
         

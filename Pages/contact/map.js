@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
     
-    var mymap = L.map('map').setView([59.254276, 15.2470413], 14);
-    var marker = L.marker([59.254276, 15.2470413]).addTo(mymap);
+    let mymap = L.map('map').setView([59.254276, 15.2470413], 14);
+    let marker = L.marker([59.254276, 15.2470413]).addTo(mymap);
     
     
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

@@ -162,7 +162,7 @@ function loadContributers(event) {
 function buttonClicked(event){
     let member = event.data.member;
 
-    var URL = document.location;
+    let URL = document.location;
     window.history.pushState( {} , '', '?member=' + member + "#presentation");
     loadMemberPage(event.data.member);
 }
