@@ -37,8 +37,10 @@ $(document).ready(function () {
             
             slide(images);
         });
+
         let medlemmar = $("<div id='medlemmar'></div>");
         $.each(data.members, function (index, value){
+            
             let medlemsruta = $("<div></div>");
             let namn = $("<h2>" + value.name + "</h2>");
             namn.click({"member": index}, buttonClicked)
@@ -48,14 +50,17 @@ $(document).ready(function () {
             
         });
         $("#presentation").append(medlemmar);
+
+
+        $("#medlemsknapp").click(medlemsknapp);
+
+        let fordjupning = $("<h2>Vi fördjupar oss nu inom</h2>");
+        $("#presentation").append(fordjupning);
+        renderGithub("javascript", $("<div class='repositories'></div>"));
+        renderGithub("CSS", $("<div class='repositories'></div>"));
     });
 
-    $("#medlemsknapp").click(medlemsknapp);
-
-    let fordjupning = $("<h2>Vi fördjupar oss nu inom</h2>");
-    $("#presentation").append(fordjupning);
-    renderGithub("javascript", $("<div class='repositories'></div>"));
-    renderGithub("CSS", $("<div class='repositories'></div>"));
+    
 });
 
 
