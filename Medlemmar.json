@@ -2,49 +2,58 @@
     "members": [
         {
             "name": "Lukas",
-            "about": "Do incididunt ex consequat officia minim mollit mollit minim nisi duis ullamco ut minim anim.",
+            "about": "19 år ifrån Frövi som gillar programmering",
             "ImageURL": "pictures/lukke.jpg",
             "skills": [
                 {
-                    "Java": "80"
+                    "Java": "75"
                 },
                 {
                     "C#": "30"
                 },
                 {
-                    "Javascript": "60"
+                    "Javascript": "80"
+                },
+                {
+                    "CSS": "70"
                 }
             ]
         },
         {
             "name": "David",
-            "about": "",
+            "about": "22åring ifrån småstaden norrby som gillar pasta",
             "ImageURL": "pictures/duvis.jpg",
             "skills": [
                 {
-                    "Fyllekäk": "80"
+                    "SQL": "85"
                 },
                 {
-                    "Cykla": "15"
+                    "HTML": "70"
                 },
                 {
-                    "Whiskey": "100"
+                    "CSS": "65"
+                },
+                {
+                    "Java": "40"
                 }
             ]
         },
         {
             "name": "Fredrik",
-            "about": "",
+            "about": "22åring kommer också ifrån som gillar idrott.",
             "ImageURL": "pictures/frillster.jpg",
             "skills": [
                 {
-                    "Vin": "100"
+                    "SQL": "86"
                 },
                 {
-                    "Golf": "70"
+                    "HTML": "60"
                 },
                 {
-                    "Bärs": "100"
+                    "CSS": "80"
+                },
+                {
+                    "Java": "80"
                 }
             ]
         }
