@@ -1,7 +1,6 @@
-let slidePlaying = true;
-let images = [];
-$(document).ready(function () {
 
+$(document).ready(function () {
+    let images = [];
     //get specific user from url
     let params = (new URL(document.location)).searchParams;
     let memberSearch = params.get("member");
@@ -14,9 +13,8 @@ $(document).ready(function () {
    
 
     let slideShowPlayButton = $("<div id='slideShowPlayButton' class='button'>Växla spela</div>");
-    slideShowPlayButton.click(toggleSlide);
     $("#presentation").prepend(slideShowPlayButton);
-    let slideShow = $("<img id='slideShow' />");
+    let slideShow = $("<img id='slideShow' playing='true' />");
     $("#presentation").prepend(slideShow);
     //if no user is selected render members
     $.getJSON("Medlemmar.json", function( data ) {
@@ -27,8 +25,18 @@ $(document).ready(function () {
         $.each(data.members, function (index, value){
             images.push(value.ImageURL);
         });
-        slide();
+        slide(images);
         
+        slideShowPlayButton.click(function () {
+            if(slideShow.attr("playing") == "false") {
+                slideShow.attr("playing", "true");
+            }else{
+                slideShow.attr("playing", "false");
+            }
+            
+            
+            slide(images);
+        });
         let medlemmar = $("<div id='medlemmar'></div>");
         $.each(data.members, function (index, value){
             let medlemsruta = $("<div></div>");
@@ -44,21 +52,18 @@ $(document).ready(function () {
 
     $("#medlemsknapp").click(medlemsknapp);
 
-
-    renderGithub();
+    let fordjupning = $("<h2>Vi fördjupar oss nu inom</h2>");
+    $("#presentation").append(fordjupning);
+    renderGithub("javascript", $("<div class='repositories'></div>"));
+    renderGithub("CSS", $("<div class='repositories'></div>"));
 });
 
-function toggleSlide(){
-    slidePlaying = !slidePlaying;
-    slide();
-}
 
-function slide() {
+function slide(images) {
     let slideElem = $("#slideShow");
-    if(!slidePlaying){
+    if(slideElem.attr("playing") == "false"){
         slideElem.css("display", "block");
-       return;
-       
+        return;
     }
     let index = slideElem.attr("index");
 
@@ -80,7 +85,7 @@ function slide() {
         
     }
     slideElem.fadeIn("slow").delay( 2000 ).fadeOut( "slow", function (){
-            slide();
+            slide(images);
     });
     slideElem.attr("src", images[index]);
 
@@ -92,12 +97,12 @@ function medlemsknapp() {
 }
 
 
-function renderGithub(){
-    let repositoriesDiv = $("<div class='repositories'></div>");
-    let fordjupning = $("<h2>Vi fördjupar oss nu innom</h2>");
-    repositoriesDiv.append(fordjupning);
-    $("#presentation").append(repositoriesDiv);
-    $.getJSON( "https://api.github.com/search/repositories?q=language:Javascript&sort=stars&order=desc", function( data ) {
+function renderGithub(language, containerDiv){
+    
+    let sprakString = $("<h2>" + language + "</h2>");
+    containerDiv.append(sprakString);
+    $("#presentation").append(containerDiv);
+    $.getJSON( "https://api.github.com/search/repositories?q=language:" + language + "&sort=stars&order=desc", function( data ) {
         let allRepos = data.items;
         let repos = allRepos.slice(0, 5);  
     
@@ -118,7 +123,7 @@ function renderGithub(){
             container.append(showMoreContent);
 
 
-            repositoriesDiv.append(container);
+            containerDiv.append(container);
         });
         
         
@@ -134,13 +139,13 @@ function loadContributers(event) {
         div.empty();
         return;
     }
-    
+
     $.getJSON( "https://api.github.com/repos/" + owner + "/" + repo + "/stats/contributors", function( contributers ) {
 
         $.each(contributers, function( index, value ) {
             let contributor = $("<div class='contributor'></div>");
             contributor.append("<img src='" + value.author.avatar_url + "'/>");
-            contributor.append("<h3>"+ value.author.login + "</h3>");
+            contributor.append("<h4>"+ value.author.login + "</h4>");
             div.append(contributor);
         }); 
         
