@@ -43,6 +43,9 @@ $(document).ready(function () {
     });
 
     $("#medlemsknapp").click(medlemsknapp);
+
+
+    renderGithub();
 });
 
 function toggleSlide(){
@@ -86,6 +89,62 @@ function slide() {
 function medlemsknapp() {
     $("#medlemmar").toggleClass("shown");
 
+}
+
+
+function renderGithub(){
+    let repositoriesDiv = $("<div class='repositories'></div>");
+    let fordjupning = $("<h2>Vi fördjupar oss nu innom</h2>");
+    repositoriesDiv.append(fordjupning);
+    $("#presentation").append(repositoriesDiv);
+    $.getJSON( "https://api.github.com/search/repositories?q=language:Javascript&sort=stars&order=desc", function( data ) {
+        let allRepos = data.items;
+        let repos = allRepos.slice(0, 5);  
+    
+        $.each(repos, function( index, value ) {
+            let container = $("<div class='repo gitHubItem'></div>");
+            let ownerName = $("<span class='RepoOwnerName'><a href='http://github.com/" + value.owner.login + "'>" + value.owner.login + "</a></span>");
+            container.append(ownerName);
+            let repoName = $("<span class='RepoName'><a href='http://github.com/" + value.owner.login + "/" + value.name+ "'>" + value.name + "</a></span>");
+            container.append(repoName);
+
+            let stars = $("<span class='RepoStars'><i class='fas fa-star'></i>" + value.stargazers_count + "</span>");
+            container.append(stars);
+            let showMoreContent = $("<div class='showMoreContent'></div>");
+            let button = $("<div class='button'>Visa mer</div>");
+            button.click({div: showMoreContent, owner: value.owner.login,  repo: value.name}, loadContributers);
+            container.append(button);
+            
+            container.append(showMoreContent);
+
+
+            repositoriesDiv.append(container);
+        });
+        
+        
+    });
+}
+
+function loadContributers(event) {
+    let div = event.data.div;
+    let owner = event.data.owner;
+    let repo = event.data.repo;
+
+    if(div.children().length > 0){
+        div.empty();
+        return;
+    }
+    
+    $.getJSON( "https://api.github.com/repos/" + owner + "/" + repo + "/stats/contributors", function( contributers ) {
+
+        $.each(contributers, function( index, value ) {
+            let contributor = $("<div class='contributor'></div>");
+            contributor.append("<img src='" + value.author.avatar_url + "'/>");
+            contributor.append("<h3>"+ value.author.login + "</h3>");
+            div.append(contributor);
+        }); 
+        
+    });
 }
 
 
