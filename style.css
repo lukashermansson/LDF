@@ -19,6 +19,13 @@ h2 {
 #presentation {
     text-align: center;
 }
+#slideShow {
+    display: block;
+    margin: auto;
+
+    margin-bottom: 1em;
+
+}
 #medlemmar h2 {
     cursor: pointer;
     background-color: #55FFE6;

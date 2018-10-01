@@ -1,3 +1,5 @@
+let slidePlaying = true;
+let images = [];
 $(document).ready(function () {
 
     //get specific user from url
@@ -11,19 +13,21 @@ $(document).ready(function () {
     }
    
 
-
+    let slideShowPlayButton = $("<div id='slideShowPlayButton' class='button'>Växla spela</div>");
+    slideShowPlayButton.click(toggleSlide);
+    $("#presentation").prepend(slideShowPlayButton);
     let slideShow = $("<img id='slideShow' />");
     $("#presentation").prepend(slideShow);
     //if no user is selected render members
     $.getJSON("Medlemmar.json", function( data ) {
         
          //slideshow 
-        let images = [];
+    
         //add image urls to array
         $.each(data.members, function (index, value){
             images.push(value.ImageURL);
         });
-        slide(images);
+        slide();
         
         let medlemmar = $("<div id='medlemmar'></div>");
         $.each(data.members, function (index, value){
@@ -41,8 +45,18 @@ $(document).ready(function () {
     $("#medlemsknapp").click(medlemsknapp);
 });
 
-function slide(images) {
+function toggleSlide(){
+    slidePlaying = !slidePlaying;
+    slide();
+}
+
+function slide() {
     let slideElem = $("#slideShow");
+    if(!slidePlaying){
+        slideElem.css("display", "block");
+       return;
+       
+    }
     let index = slideElem.attr("index");
 
     if(index == null){
@@ -63,9 +77,10 @@ function slide(images) {
         
     }
     slideElem.fadeIn("slow").delay( 2000 ).fadeOut( "slow", function (){
-        slide(images);
+            slide();
     });
     slideElem.attr("src", images[index]);
+
 }
 
 function medlemsknapp() {
