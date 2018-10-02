@@ -90,7 +90,7 @@ function emailValidator() {
     let value = email[0].value;
     email.removeClass("invalid");
     
-    const regularExpresson = new RegExp("^[a-zA-Z-0-9]{1,}[@][a-zA-Z]{1,}[\.][a-zA-Z]{1,}$");
+    const regularExpresson = new RegExp("^[a-zA-Z-0-9\.-]{1,}[@][a-zA-Z]{1,}[\.][a-zA-Z]{1,}$");
     if(!regularExpresson.test(value)){
         email.addClass("invalid");
         
