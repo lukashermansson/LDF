@@ -66,7 +66,7 @@ function fnameValidator() {
 
     let value = fname[0].value;
     fname.removeClass("invalid");
-    const regularExpresson = new RegExp("^[a-zA-Z-]{2,}[ ][a-zA-Z-]{2,}$");
+    const regularExpresson = new RegExp("^[a-zA-ZåäöÅÄÖ-]{2,}[ ][a-zA-ZåäöÅÄÖ-]{2,}$");
     if(!regularExpresson.test(value)){
         fname.addClass("invalid")
         
