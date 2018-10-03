@@ -1,7 +1,8 @@
 
 
 input[type=text], textarea {
-    display: border-box;
+    display: block;
+    box-sizing: border-box;
     width: 100%;
     padding: 0.2em;
     border: 1px solid #42E8A1;

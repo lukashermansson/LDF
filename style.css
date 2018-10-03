@@ -68,7 +68,8 @@ h2 {
     border-radius: 6px;
     background-color: #42D3E8;
 
-    display: border-box;
+    display: block;
+    box-sizing: border-box;
     margin: auto;
     margin-top: 2em;
     max-width: 767px;
