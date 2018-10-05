@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('a[href="#home"]').click({page: "Pages/home/home.html", link: "#home"}, navBarItemKlicked);
     $('a[href="#presentation"]').click({page: "Pages/presentation/presentation.html", link: "#presentation"}, navBarItemKlicked);
     $('a[href="#kontakt"]').click({page: "Pages/contact/contact.html", link: "#kontakt"}, navBarItemKlicked);
+    $('a[href="#portfolio"]').click({page: "Pages/portfolio/portfolio.html", link: "#portfolio"}, navBarItemKlicked);
 });
 
 function navBarItemKlicked(event){
@@ -12,7 +13,7 @@ function navBarItemKlicked(event){
     let newPageURL = event.data.page;
 
     let link =  event.data.link;
-    var url = window.location.href;
+    let url = window.location.href;
     let BeforeSearch = url.split("?")[0];
     BeforeSearch = BeforeSearch.split("#")[0];
 

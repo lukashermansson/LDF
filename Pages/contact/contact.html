@@ -1,21 +1,26 @@
-<link rel="stylesheet" type="text/css" href="Pages/contact/contact.css">
 <script type="text/javascript" src="Pages/contact/contact.js"></script>
+
 
 <div class="containerDiv">
 <form id="contactForm">
-    <label for="fname">Namn</label>
+    <label for="fname">Namn*</label>
     <input type="text" id="fname" name="fullName" placeholder="Ditt namn"/>
 
-    <label for="telenr">Telefonnummer</label>
+    <label for="telenr">Telefonnummer*</label>
     <input type="text" id="telenr" name="telenr" placeholder="Ditt telefonnummer"/>
 
-    <label for="email">E-post</label>
+    <label for="email">E-post*</label>
     <input type="text" id="email" name="email" placeholder="Din e-post"/>
 
-    <label for="message">Medelande</label>
-    <textarea id="message" name="message" placeholder="Ditt medelande"/>
+    <label for="message">Medelande*</label>
+    <textarea id="message" name="message" placeholder="Ditt medelande"> </textarea>
 
 
     <div id="ContactSubmit" class="button">Skicka</div>
 </form>
 </div>
+<div id="contactMap">
+    <div id="map"></div>
+</div>
+
+<script type="text/javascript" src="Pages/contact/map.js"></script>

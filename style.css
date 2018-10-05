@@ -19,12 +19,57 @@ h2 {
 #presentation {
     text-align: center;
 }
+#slideShow {
+    display: block;
+    margin: auto;
+
+    margin-bottom: 1em;
+
+}
+
+.gitHubItem {
+    padding: 0.5em;
+    border: 1px solid #48B7FF;
+    border-radius: 2em;
+    margin: auto;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+.gitHubItem .button{
+    display: block;
+    margin: auto;
+    width: 4em;
+    margin-top: 0.7em;
+}
+.gitHubItem .contributor img{
+    width: 2em;
+}
+
+.gitHubItem .RepoOwnerName {
+    margin: 0.1em;
+}
+.gitHubItem .RepoName {
+    margin: 0.1em;
+}
+.gitHubItem .RepoStars {
+    margin: 0.1em;
+}
+#medlemmar h2 {
+    cursor: pointer;
+    background-color: #55FFE6;
+    display: block;
+    width: 8em;
+    margin: auto;
+    margin-top: 0.3em;
+    border-radius: 0.2em;
+}
 .containerDiv {
     width: calc(96% - 2em);
     border-radius: 6px;
     background-color: #42D3E8;
 
-    display: border-box;
+    display: block;
+    box-sizing: border-box;
     margin: auto;
     margin-top: 2em;
     max-width: 767px;
@@ -32,6 +77,10 @@ h2 {
 
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 
+}
+.projekt img{
+    width: 90%;
+    margin: 0px 5%;
 }
 .button {
     background-color: #48FF7D; 
